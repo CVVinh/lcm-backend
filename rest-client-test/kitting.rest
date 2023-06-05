@@ -1,0 +1,23 @@
+// for Visual Studio Code extention "REST Client"
+// https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+//
+
+@hostname = localhost
+@port =  8000
+@host = {{hostname}}:{{port}}
+@x-pclcm-token = 45ec5067-2529-4e02-b87b-37f8a4281fa8
+
+### Get kitting list - Success
+# POST http://{{host}}/master/kitting/list HTTP/1.1
+# content-type: application/json
+# x-pclcm-token: {{x-pclcm-token}}
+
+# {}
+
+#GET http://{{host}}/func/get-account-list/ HTTP/1.1
+
+GET http://{{host}}/func/get-account-list/ HTTP/1.1
+
+#GET http://{{host}}/func/get-order-history-list/ HTTP/1.1
+
+#GET http://{{host}}/func/get-arrival-list/ HTTP/1.1

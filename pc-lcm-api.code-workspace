@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.linting.pylintEnabled": false,
+		"python.linting.flake8Enabled": true,
+		"python.linting.ignorePatterns": [
+			".vscode/*.py",
+		],
+		"python.linting.flake8Args": [
+			"--max-line-length=150",
+		],
+		"python.formatting.autopep8Args": [
+			"--max-line-length=150",
+		],
+		"python.analysis.extraPaths": [
+			"service-api\\venv\\lib\\site-packages"
+		],
+		"rest-client.decodeEscapedUnicodeCharacters": true
+	}
+}

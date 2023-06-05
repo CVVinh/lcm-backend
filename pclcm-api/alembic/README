@@ -1,0 +1,11 @@
+Generic single-database configuration.
+
+> cd pclcm-api
+> .\venv\Scripts\activate (Windows) or source .\venv\bin\activate (macos)  ... 仮想環境に入る
+> alembic upgrade head
+
+
+> lệnh tạo migration
+
+> alembic revision --autogenerate -m "Add table_name"
+> alembic upgrade head
