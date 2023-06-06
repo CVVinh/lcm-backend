@@ -1508,20 +1508,35 @@ class DepreciationRule(Base):
     isDeleted = Column("is_deleted", Boolean, nullable=False,
                        server_default=text("False"), comment="登録旗deleted: 0：消去未 ,1：消去済")
 
+class OrderMaster(Base):
+    __tablename__ = 'm_order'
 
-
-
-
-class DepreciationRule(Base):
-    __tablename__ = 'm_test'
-
-    testId = Column(
-        "test_id", Integer, primary_key=True)
-    depreciationTest = Column("depreciation_test", String(100))
+    orderId = Column("order_id", Integer, primary_key=True)
+    companyOrder = Column("company_order", String(255))
+    addressOrder = Column("address_order", String(255))
+    descriptionOrder = Column("description_order", String(255))
     createdAt = Column("created_at", DateTime, nullable=False, server_default=func.now(), comment="created_at")
     createdBy = Column("created_by", ForeignKey("m_account.account_id"), comment="created_by")
-    modifiedAt = Column("modified_at", DateTime, nullable=False,server_default=func.now(), comment="modifiedAt")
+    modifiedAt = Column("modified_at", DateTime, nullable=False,server_default=func.now(), comment="modified_at")
     modifiedBy = Column("modified_by", ForeignKey("m_account.account_id"), comment="modified_by")
     deletedAt = Column("deleted_at", DateTime, comment="deleted_at")
     deletedBy = Column("deleted_by", ForeignKey("m_account.account_id"), comment="deleted_by")
     isDeleted = Column("is_deleted", Boolean, nullable=False, server_default=text("False"), comment="is_deleted")
+    #requestOrder = relationship("OrderProductDetail", back_populates="orderMaster")
+    
+class OrderDetailMaster(Base):
+    __tablename__ = 'm_order_detail'
+
+    orderDetailtId = Column("order_detail_id", Integer, primary_key=True)
+    orderId = Column("order_id", ForeignKey("m_order.order_id"), comment='order_id')
+    descriptionOrderDetail = Column("description_order_detail", String(255))
+    statusOrderDetail = Column("status_order_detail", Integer, nullable=False, server_default=text("0"))
+    createdAt = Column("created_at", DateTime, nullable=False, server_default=func.now(), comment="created_at")
+    createdBy = Column("created_by", ForeignKey("m_account.account_id"), comment="created_by")
+    modifiedAt = Column("modified_at", DateTime, nullable=False,server_default=func.now(), comment="modified_at")
+    modifiedBy = Column("modified_by", ForeignKey("m_account.account_id"), comment="modified_by")
+    deletedAt = Column("deleted_at", DateTime, comment="deleted_at")
+    deletedBy = Column("deleted_by", ForeignKey("m_account.account_id"), comment="deleted_by")
+    isDeleted = Column("is_deleted", Boolean, nullable=False, server_default=text("False"), comment="is_deleted")
+    #requestOrderDetail = relationship("OrderProduct", back_populates="orderDetailMaster")
+    

@@ -14,10 +14,159 @@
 
 # {}
 
+# account_controller
 #GET http://{{host}}/func/get-account-list/ HTTP/1.1
 
-GET http://{{host}}/func/get-account-list/ HTTP/1.1
-
-#GET http://{{host}}/func/get-order-history-list/ HTTP/1.1
-
+# arrival_controller
 #GET http://{{host}}/func/get-arrival-list/ HTTP/1.1
+#GET http://{{host}}/func/get-arrival-info/ HTTP/1.1
+#POST http://{{host}}/func/add-arrival/ HTTP/1.1
+#PUT http://{{host}}/func/update-arrival-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-arrival-info/ HTTP/1.1
+#GET http://{{host}}/func/export-arrival-list/ HTTP/1.1
+
+# asset_controller
+#GET http://{{host}}/func/get-asset-list/ HTTP/1.1
+#GET http://{{host}}/func/get-asset-info/ HTTP/1.1
+#POST http://{{host}}/func/add-asset/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-asset/ HTTP/1.1
+#GET http://{{host}}/func/export-asset-list-csv/ HTTP/1.1
+
+
+# asset_depre_controller
+#GET http://{{host}}/func/get-asset-depreciation-list/ HTTP/1.1
+#GET http://{{host}}/func/get-asset-depreciation-info/ HTTP/1.1
+#POST http://{{host}}/func/add-asset-depreciation/ HTTP/1.1
+#PUT http://{{host}}/func/update-asset-depreciation/ HTTP/1.1
+#GET http://{{host}}/func/export-asset-depreciation-list/ HTTP/1.1
+
+# asset_set_asset_controller
+#POST http://{{host}}/func/add-asset-set-asset/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-asset-set-asset/ HTTP/1.1
+
+# base_controller
+#GET http://{{host}}/func/get-base-info/ HTTP/1.1
+#GET http://{{host}}/func/get-base-list/ HTTP/1.1
+#POST http://{{host}}/func/add-base/ HTTP/1.1
+#PUT http://{{host}}/func/update-base-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-base/ HTTP/1.1
+#GET http://{{host}}/func/export-base-list/ HTTP/1.1
+
+# depreciation_rule_controller
+#GET http://{{host}}/func/depreciation-rule-info/ HTTP/1.1
+#GET http://{{host}}/func/depreciation-rule-list/ HTTP/1.1
+#POST http://{{host}}/func/add-depreciation-rule/ HTTP/1.1
+#PUT http://{{host}}/func/update-depreciation-rule/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-depreciation-rule/ HTTP/1.1
+#GET http://{{host}}/func/export-depreciation-rule/ HTTP/1.1
+
+# disposal_controller
+#GET http://{{host}}/func/get-disposal-info/ HTTP/1.1
+#GET http://{{host}}/func/add-disposal/ HTTP/1.1
+#PUT http://{{host}}/func/update-disposal-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-disposal/ HTTP/1.1
+
+# gen_code_controller
+#GET http://{{host}}/func/get-gen_code-list/ HTTP/1.1
+
+# item_master_controller
+#GET http://{{host}}/func/get-item-list/ HTTP/1.1
+#GET http://{{host}}/func/get-item-info/ HTTP/1.1
+#POST http://{{host}}/func/add-item/ HTTP/1.1
+#PUT http://{{host}}/func/update-item-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-item/ HTTP/1.1
+#GET http://{{host}}/func/export-item-list/ HTTP/1.1
+
+# item_set_controller
+#GET http://{{host}}/func/get-item-set-info/ HTTP/1.1
+#GET http://{{host}}/func/get-item-set-list/ HTTP/1.1
+#POST http://{{host}}/func/add-item-set/ HTTP/1.1
+#PUT http://{{host}}/func/update-item-set-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-item-set/ HTTP/1.1
+#GET http://{{host}}/func/export-item-set-list-csv/ HTTP/1.1
+
+# kitting_controller
+#GET http://{{host}}/func/get-kitting-list/ HTTP/1.1
+#GET http://{{host}}/func/get-kitting-info/ HTTP/1.1
+#POST http://{{host}}/func/add-kitting/ HTTP/1.1
+#PUT http://{{host}}/func/update-kitting-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-kitting/ HTTP/1.1
+#GET http://{{host}}/func/export-kitting-list/ HTTP/1.1
+
+# lcm_controller
+#GET http://{{host}}/func/get-lcm-list/ HTTP/1.1
+#GET http://{{host}}/func/export-lcm-list/ HTTP/1.1
+
+# maker_controller
+#GET http://{{host}}/func/get-maker-list/ HTTP/1.1
+#GET http://{{host}}/func/get-maker-info/ HTTP/1.1
+#POST http://{{host}}/func/add-maker/ HTTP/1.1
+#PUT http://{{host}}/func/update-maker-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-maker/ HTTP/1.1
+#GET http://{{host}}/func/export-maker-list/ HTTP/1.1
+
+# outsourcing_company_controller
+#GET http://{{host}}/func/get-outsourcing-company-list/ HTTP/1.1
+#GET http://{{host}}/func/get-outsourcing-company-info/ HTTP/1.1
+#POST http://{{host}}/func/add-outsourcing-company/ HTTP/1.1
+#PUT http://{{host}}/func/update-outsourcing-company-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-outsourcing-company/ HTTP/1.1
+#GET http://{{host}}/func/export-outsourcing-company-list/ HTTP/1.1
+
+# pickup_controller
+#GET http://{{host}}/func/get-pickup-info/ HTTP/1.1
+#POST http://{{host}}/func/add-pickup/ HTTP/1.1
+#PUT http://{{host}}/func/update-pickup/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-pickup/ HTTP/1.1
+
+# prefecture_company_controller
+#GET http://{{host}}/func/get-prefecture-list/ HTTP/1.1
+
+# procurement_controller
+#GET http://{{host}}/func/get-procurement-info/ HTTP/1.1
+#GET http://{{host}}/func/get-procurement-list/ HTTP/1.1
+#POST http://{{host}}/func/add-procurement/ HTTP/1.1
+#PUT http://{{host}}/func/update-procurement-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-procurement/ HTTP/1.1
+#GET http://{{host}}/func/export-procurement-list-csv/ HTTP/1.1
+
+# repairing_controller
+#GET http://{{host}}/func/get-repairing-info/ HTTP/1.1
+#POST http://{{host}}/func/add-repairing/ HTTP/1.1
+#PUT http://{{host}}/func/update-repairing-info/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-repairing/ HTTP/1.1
+
+
+# shipping_controller
+#GET http://{{host}}/func/get-shipping-info/ HTTP/1.1
+#GET http://{{host}}/func/get-shipping-list/ HTTP/1.1
+#POST http://{{host}}/func/add-shipping/ HTTP/1.1
+#PUT http://{{host}}/func/update-shipping/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-shipping/ HTTP/1.1
+#GET http://{{host}}/func/export-shipping-list-csv/ HTTP/1.1
+
+# t_kitting_controller
+#GET http://{{host}}/func/get-kitting-info/ HTTP/1.1
+#POST http://{{host}}/func/add-kitting/ HTTP/1.1
+#PUT http://{{host}}/func/update-kitting/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-kitting/ HTTP/1.1
+
+
+# user_support_controller
+#GET http://{{host}}/func/get-message-list/ HTTP/1.1
+#GET http://{{host}}/func/get-request-list/ HTTP/1.1
+#GET http://{{host}}/func/get-request-info/ HTTP/1.1
+#POST http://{{host}}/func/add-request/ HTTP/1.1
+
+# using_controller
+#GET http://{{host}}/func/get-using-info/ HTTP/1.1
+#POST http://{{host}}/func/add-using/ HTTP/1.1
+#PUT http://{{host}}/func/update-using/ HTTP/1.1
+#DELETE http://{{host}}/func/delete-using/ HTTP/1.1
+
+
+# order_controller
+GET http://{{host}}/func/get-order-list/ HTTP/1.1
+
+
+
