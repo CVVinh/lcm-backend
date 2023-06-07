@@ -205,7 +205,6 @@ def add_update_object(data, obj):
         setattr(obj, key, val)
     return obj
 
-
 def paginate(result_list, query_params):
     """
     Paginate processing and search with pageNum, pageSize.

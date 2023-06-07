@@ -1527,10 +1527,10 @@ class OrderMaster(Base):
 class OrderDetailMaster(Base):
     __tablename__ = 'm_order_detail'
 
-    orderDetailtId = Column("order_detail_id", Integer, primary_key=True)
+    orderDetailtId = Column("order_detail_id", Integer, primary_key=True, comment="order_detail_id")
     orderId = Column("order_id", ForeignKey("m_order.order_id"), comment='order_id')
-    descriptionOrderDetail = Column("description_order_detail", String(255))
-    statusOrderDetail = Column("status_order_detail", Integer, nullable=False, server_default=text("0"))
+    descriptionOrderDetail = Column("description_order_detail", String(255), comment="description_order_detail")
+    statusOrderDetail = Column("status_order_detail", Integer, nullable=False, server_default=text("0"), comment="status_order_detail")
     createdAt = Column("created_at", DateTime, nullable=False, server_default=func.now(), comment="created_at")
     createdBy = Column("created_by", ForeignKey("m_account.account_id"), comment="created_by")
     modifiedAt = Column("modified_at", DateTime, nullable=False,server_default=func.now(), comment="modified_at")

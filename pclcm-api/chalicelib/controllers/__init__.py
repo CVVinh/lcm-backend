@@ -22,6 +22,7 @@ from chalicelib.controllers.asset_depre_controller import asset_depre_bp
 from chalicelib.controllers.asset_set_asset_controller import asset_set_asset_bp
 from chalicelib.controllers.lcm_controller import lcm_bp
 from chalicelib.controllers.order_controller import order_bp
+from chalicelib.controllers.order_detail_controller import order_detail_bp
 
 def init_app(app):
     base_url = '/'
@@ -49,3 +50,4 @@ def init_app(app):
     app.register_blueprint(asset_set_asset_bp, url_prefix=base_url)
     app.register_blueprint(lcm_bp, url_prefix=base_url)
     app.register_blueprint(order_bp, url_prefix=base_url)
+    app.register_blueprint(order_detail_bp, url_prefix=base_url)
