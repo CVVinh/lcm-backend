@@ -1067,8 +1067,7 @@ class RoleMaster(Base):
     isDeleted = Column("is_deleted", Boolean, nullable=False,
                        server_default=text("False"), comment="登録旗deleted: 0：消去未 ,1：消去済")
 
-    accountRoleMaster = relationship(
-        "AccountRoleMaster", back_populates="roleMaster")
+    accountRoleMaster = relationship("AccountRoleMaster", back_populates="roleMaster")
 
 
 class RoleOperationMaster(Base):
@@ -1093,8 +1092,7 @@ class RoleOperationMaster(Base):
     isDeleted = Column("is_deleted", Boolean, nullable=False,
                        server_default=text("False"), comment="登録旗deleted: 0：消去未 ,1：消去済")
 
-    operationMaster = relationship(
-        "OperationMaster", back_populates="roleOperationMaster")
+    operationMaster = relationship("OperationMaster", back_populates="roleOperationMaster")
 
 
 class OperationMaster(Base):
@@ -1119,8 +1117,7 @@ class OperationMaster(Base):
     isDeleted = Column("is_deleted", Boolean, nullable=False,
                        server_default=text("False"), comment="登録旗deleted: 0：消去未 ,1：消去済")
 
-    roleOperationMaster = relationship(
-        "RoleOperationMaster", back_populates="operationMaster")
+    roleOperationMaster = relationship("RoleOperationMaster", back_populates="operationMaster")
 
 
 class AccountBaseMaster(Base):
@@ -1399,8 +1396,7 @@ class Message(Base):
         "m_account.account_id"), comment="削除者")
     isDeleted = Column("is_deleted", Boolean, nullable=False,
                        server_default=text("False"), comment="登録旗deleted: 0：消去未 ,1：消去済")
-    accountMaster = relationship(
-        "AccountMaster", foreign_keys="Message.accountId", back_populates="messageaccount")
+    accountMaster = relationship("AccountMaster", foreign_keys="Message.accountId", back_populates="messageaccount")
 
 
 class Userrequest(Base):
