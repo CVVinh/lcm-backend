@@ -282,7 +282,7 @@ class ItemMaster(Base):
     makerId = Column("maker_id", ForeignKey(
         "m_maker.maker_id"), nullable=False, comment='メーカーID')
     makerModel = Column('maker_model', String(200), comment='メーカー型番')
-    assetType = Column('asset_type', nullable=False, server_default=text(
+    assetType = Column('asset_type', Integer, nullable=False, server_default=text(
         "0"), comment='資産区分:0：一般、1：ライセンス')
     expirationDateFrom = Column('expiration_date_from', Date, comment='有効開始日')
     expirationDateTo = Column('expiration_date_to', Date, comment='有効終了日')
@@ -298,7 +298,7 @@ class ItemMaster(Base):
     itemTitle = Column('item_title', String(
         200), comment='商品タイトル:未指定の場合は「品目名称」を設定')
     itemDescription = Column('item_description', Text, comment='商品説明')
-    # itemImage = Column('item_image',String(200))
+    itemImage = Column('item_image',String(200))
     createdAt = Column("created_at", DateTime, nullable=False,
                        server_default=func.now(), comment="作成日時:プログラムでは設定しない")
     createdBy = Column("created_by", ForeignKey(
@@ -530,18 +530,22 @@ class Arrival(Base):
     )
     createdAt = Column("created_at", DateTime, nullable=False,
                        server_default=func.now(), comment="作成日時:プログラムでは設定しない")
-    createdBy = Column("created_by", ForeignKey(
-        "m_account.account_id"), comment="作成処理:プログラムで設定、API名、関数名")
+    
     modifiedAt = Column("modified_at", DateTime, nullable=False,
                         server_default=func.now(), comment="更新日時:プログラムでは設定しない")
-    modifiedBy = Column("modified_by", ForeignKey(
-        "m_account.account_id"), comment="更新処理:プログラムで設定、API名、関数名")
+    
     deletedAt = Column("deleted_at", DateTime, comment="削除日時")
-    deletedBy = Column("deleted_by", ForeignKey(
-        "m_account.account_id"), comment="削除者")
+    
     isDeleted = Column("is_deleted", Boolean, nullable=False,
                        server_default=text("False"), comment="登録旗deleted: 0：消去未 ,1：消去済")
 
+    createdBy = Column("created_by", ForeignKey(
+        "m_account.account_id"), comment="作成処理:プログラムで設定、API名、関数名")
+    modifiedBy = Column("modified_by", ForeignKey(
+        "m_account.account_id"), comment="更新処理:プログラムで設定、API名、関数名")
+    deletedBy = Column("deleted_by", ForeignKey(
+        "m_account.account_id"), comment="削除者")
+    
     order = relationship("Order", back_populates="arrival")
     itemMaster = relationship("ItemMaster", back_populates="arrival")
     itemTypeMaster = relationship("ItemTypeMaster", back_populates="arrival")
@@ -711,19 +715,19 @@ class AssetDepreciation(Base):
                      server_default=text("1"), comment='バージョン:楽観的排他で利用')
     createdAt = Column("created_at", DateTime, nullable=False,
                        server_default=func.now(), comment="作成日時:プログラムでは設定しない")
-    createdBy = Column("created_by", ForeignKey(
-        "m_account.account_id"), comment="作成処理:プログラムで設定、API名、関数名")
     modifiedAt = Column("modified_at", DateTime, nullable=False,
                         server_default=func.now(), comment="更新日時:プログラムでは設定しない")
-    modifiedBy = Column("modified_by", ForeignKey(
-        "m_account.account_id"), comment="更新処理:プログラムで設定、API名、関数名")
     deletedAt = Column("deleted_at", DateTime, comment="削除日時")
-    deletedBy = Column("deleted_by", ForeignKey(
-        "m_account.account_id"), comment="削除者")
     isDeleted = Column("is_deleted", Boolean, nullable=False,
                        server_default=text("False"), comment="登録旗deleted: 0：消去未 ,1：消去済")
 
-
+    createdBy = Column("created_by", ForeignKey(
+        "m_account.account_id"), comment="作成処理:プログラムで設定、API名、関数名")
+    modifiedBy = Column("modified_by", ForeignKey(
+        "m_account.account_id"), comment="更新処理:プログラムで設定、API名、関数名")
+    deletedBy = Column("deleted_by", ForeignKey(
+        "m_account.account_id"), comment="削除者")
+    
 class Shipping(Base):
     __tablename__ = "t_shipping"
 
@@ -1323,18 +1327,18 @@ class AssetSetAsset(Base):
                      server_default=text("1"), comment='バージョン:楽観的排他で利用')
     createdAt = Column("created_at", DateTime, nullable=False,
                        server_default=func.now(), comment="作成日時:プログラムでは設定しない")
-    createdBy = Column("created_by", ForeignKey(
-        "m_account.account_id"), comment="作成処理:プログラムで設定、API名、関数名")
     modifiedAt = Column("modified_at", DateTime, nullable=False,
                         server_default=func.now(), comment="更新日時:プログラムでは設定しない")
-    modifiedBy = Column("modified_by", ForeignKey(
-        "m_account.account_id"), comment="更新処理:プログラムで設定、API名、関数名")
     deletedAt = Column("deleted_at", DateTime, comment="削除日時")
-    deletedBy = Column("deleted_by", ForeignKey(
-        "m_account.account_id"), comment="削除者")
     isDeleted = Column("is_deleted", Boolean, nullable=False,
                        server_default=text("False"), comment="登録旗deleted: 0：消去未 ,1：消去済")
 
+    createdBy = Column("created_by", ForeignKey(
+        "m_account.account_id"), comment="作成処理:プログラムで設定、API名、関数名")
+    modifiedBy = Column("modified_by", ForeignKey(
+        "m_account.account_id"), comment="更新処理:プログラムで設定、API名、関数名")
+    deletedBy = Column("deleted_by", ForeignKey(
+        "m_account.account_id"), comment="削除者")
 
 class AssetSet(Base):
     __tablename__ = 't_asset_set'
