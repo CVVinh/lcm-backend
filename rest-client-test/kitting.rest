@@ -166,7 +166,7 @@
 
 
 # order_controller
-GET http://{{host}}/func/get-order-detail-list/ HTTP/1.1
+#GET http://{{host}}/func/get-order-list/ HTTP/1.1
 
 
 

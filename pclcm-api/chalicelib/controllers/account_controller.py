@@ -20,4 +20,3 @@ def account_list_controller():
     if success:
         return success_response(result)
     return error_response({'message': str(result), 'status': 400}, 400)
- 

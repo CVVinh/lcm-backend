@@ -1,5 +1,5 @@
 from sqlalchemy.sql import func
-from chalicelib.models.models import BaseMaster
+from chalicelib.models.models import BaseMaster, AccountMaster, AccountBaseMaster
 from chalicelib.models import session
 from chalicelib.utils.utils import add_update_object, object_as_dict, export, paginate
 from chalicelib.messages import MessageResponse
@@ -143,3 +143,26 @@ def filter_param_get_list_base(query_params):
         query_list_base = query_list_base.filter(BaseMaster.isDeleted == 0)
 
     return [object_as_dict(base) for base in query_list_base.all()]
+
+
+def get_base_user_info(query_params):
+    """_summary_
+
+    get 1 record for account and base by id account
+    Arguments:
+        query_params: param search
+    Returns:
+        Response: Returning a message and a object include obj 
+    """
+    # Query Column needs to get, join tables containing information to get
+    account_id = query_params.get("accountId")
+    query_list_account = session.query(AccountMaster.accountId, BaseMaster.baseId, BaseMaster.baseName, BaseMaster.prefCode, BaseMaster.address, BaseMaster.addressee, BaseMaster.eMailAddress, BaseMaster.telephoneNumber, BaseMaster.faxNumber).join(
+        AccountBaseMaster, AccountMaster.accountId == AccountBaseMaster.accountId, isouter=True).join(
+        BaseMaster, AccountBaseMaster.baseId == BaseMaster.baseId, isouter=True).filter(
+        AccountMaster.accountId == account_id).distinct()
+
+    result_list = [{**account} for account in query_list_account.all()]
+    return (True, {"mstBaseUser": result_list,
+                   "message": message_base_constant.MESSAGE_SUCCESS_GET_LIST,
+                   "status": 200
+                   })
