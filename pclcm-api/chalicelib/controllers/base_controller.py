@@ -84,7 +84,7 @@ def export_base_list_controller():
         )
     return error_response({'message': str(result)}, 400)
 
-@base_bp.route('/func/get-base-account-info', methods=['GET'])
+@base_bp.route('/func/get-base-user-info', methods=['GET'])
 @errors_handle
 @transaction()
 def account_list_controller():
